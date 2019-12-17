@@ -1,8 +1,15 @@
 import React from "react";
-import './App.css';
+import "./App.css";
+
+import profile from './assets/profile.png';
 
 function App() {
-  return <h1>Hello React</h1>;
+  return (
+    <div>
+      <h1>Hello React</h1>
+      <img src={profile} alt="" />
+    </div>
+  );
 }
 
 export default App;
