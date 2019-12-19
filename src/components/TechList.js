@@ -6,6 +6,20 @@ class TechList extends Component {
     techs: ["Node.js", "React.js", "React Native"]
   };
 
+  componentDidMount() {
+    const techs = localStorage.getItem("techs");
+
+    if (techs) {
+      this.setState({ techs: JSON.parse(techs) });
+    }
+  }
+
+  componentDidUpdate(_, prevState) {
+    if (prevState.techs !== this.state.techs) {
+      localStorage.setItem("techs", JSON.stringify(this.state.techs));
+    }
+  }
+
   handleInputChange = e => {
     this.setState({ newTech: e.target.value });
   };
